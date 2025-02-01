@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Top Navigation Bar */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 15px;
+      background: #fff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hamburger Icon (Left Side) */
+    .ham {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 35px;
+      height: 25px;
+      cursor: pointer;
+    }
+
+    .bar {
+      width: 35px;
+      height: 4px;
+      background-color: black;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* Hamburger Animation */
+    .ham.open .bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .ham.open .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .ham.open .bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Menu Styling */
+    .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 15px;
+      background: white;
+      width: 200px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: black;
+      padding: 15px;
+      display: block;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .menu a:hover {
+      color:green;
+    }
+
+    .menu.show {
+      display: flex;
+    }
+
+    /* Search Box (Right Side) */
+    .search-box {
+      position: relative;
+      width: 250px;
+    }
+
+    .search-box input {
+      width: 150px;
+      padding: 10px 40px 10px 10px;
+      border: 2px solid #ccc;
+      border-radius: 20px;
+      font-size: 16px;
+      position: absolute;
+      right: 160px;
+      top: -20px;
+    }
+
+    .search-box button {
+      position: absolute;
+      right: 170px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .search-box button img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .search-box {
+        width: 200px;
+      }
+
+      .ham {
+        width: 30px;
+        height: 20px;
+      }
+
+      .bar {
+        width: 30px;
+        height: 3px;
+      }
+
+      .menu {
+        width: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .search-box {
+        width: 150px;
+      }
+
+      .ham {
+        width: 28px;
+        height: 18px;
+      }
+
+      .bar {
+        width: 28px;
+        height: 3px;
+      }
+
+      .menu {
+        width: 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <!-- Hamburger Icon (Left) -->
+    <div class="ham" id="ham">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <!-- Search Box (Right) -->
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <button>
+        <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" alt="Search">
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu" id="menu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Career</a>
+    <a href="#">Contact Us</a>
+    <a href="Loginpage.html" target="_blank">Login or Register</a>
+  </div>
+
+  <script>
+    document.getElementById('ham').addEventListener('click', function() {
+      this.classList.toggle('open');
+      document.getElementById('menu').classList.toggle('show');
+    });
+  </script>
+
+</body>
+
+</html>
